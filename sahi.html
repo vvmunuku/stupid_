@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Website</title>
+    <style>
+        body {
+            font-family: 'Lucida Handwriting', cursive;
+            text-align: center;
+            background-color: #fff0f5;
+            color: #ff1493;
+        }
+        #message {
+            font-size: 24px; 
+            margin: 20px 0; 
+            color: #ff69b4;
+        }
+        #image img {
+            max-width: 400px; 
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 10px; 
+            border: 3px solid #ffb6c1;
+        }
+        button {
+            font-size: 18px;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            background-color: #ff69b4;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine Sahi :)</h1>
+    <div id="question">I can't believe we've been together for almost 6 months! We've gone through so much together so many memories, so many ups and downs. There's no one else I'd wanna do this with :) We took such a big decision in New York to give this a try and I'm so so so grateful and happy that we tried :) Cheers to our first Valentine's Day together and I can't wait for more and more!</div>
+    <div id="message"></div> 
+    <div id="image">
+        <img src="1.jpeg" alt="Valentine's question image">
+    </div>
+    <button id="yesButton">Yes</button>
+    <button id="noButton">No</button>
+
+    <script>
+        const yesButton = document.getElementById("yesButton");
+        const noButton = document.getElementById("noButton");
+        const messageElement = document.getElementById("message");
+        const imageElement = document.querySelector("#image img");
+
+        const images = ["1.jpeg", "2.jpeg", "3.jpeg"]; 
+        let imageIndex = 0;
+
+        const noMessages = [
+            "No way you clicked no but I'll give you a second chance smh you devatha.",
+            "No way my bangaram doesn't want me to take her out. One more chance?",
+            "I see you clicked no devatha but I'll always give you more second chances :) I know we'll both try making this work :)?"
+        ];
+        let noMessageIndex = 0;
+
+        yesButton.addEventListener("click", function() {
+            messageElement.textContent = "Can't wait to be your valentine and spend this Valentine's day with you losu :)";
+            yesButton.style.display = 'none';
+            noButton.style.display = 'none';
+        });
+
+        noButton.addEventListener("click", function() {
+            messageElement.textContent = noMessages[noMessageIndex++];
+            if (noMessageIndex >= noMessages.length) noMessageIndex = 0;
+
+            imageIndex++;
+            if (imageIndex >= images.length) imageIndex = 0; 
+            imageElement.src = images[imageIndex];
+        });
+    </script>
+</body>
+</html>
